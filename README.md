@@ -1,5 +1,8 @@
 # Sotn_Tool_Automation
 
+Currently, GUI options works only for getting the selected options and the Tool Path and Bin Path. Also, only the randomization of Elements its working. 
+
+
 Video of the Sotn Tool:
 https://www.youtube.com/watch?v=umLFfAu6onU
 
