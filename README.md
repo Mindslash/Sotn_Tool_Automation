@@ -1,6 +1,11 @@
 # Sotn_Tool_Automation
 
-Currently, GUI options works only for getting the selected options and the Tool Path and Bin Path. Also, only the randomization of Elements its working. 
+Currently working:
+- Tool and Iso Path load
+- Safe, Enhanced and Chaotic Randomization
+- Multiply factors by x2,x3,x4 and x5 for STR/DEF/HP 
+- Multiply factors by 1.25,1.33,1.5 and 2 for LV/EXP
+- Reset not working yet.
 
 
 Video of the Sotn Tool:
