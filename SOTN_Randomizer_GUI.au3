@@ -3,6 +3,8 @@
 1 - Changing Map to Array to not rely on Beta
 2 - A confirm box displaying all selected options
 3 - A logic to when all selected options of the Map are 0 ( Default), prevent the Patch button to be pressed or give an alert. Or maybe can be treated on the main.
+
+
 #ce
 
 #include-once
@@ -32,20 +34,23 @@ GUICtrlSetState(-1, $GUI_DISABLE)
 $InputIsoBinPath = GUICtrlCreateInput("", 112, 55, 257, 21)
 GUICtrlSetState(-1, $GUI_DISABLE)
 
-; Element Randomizer options
+; Element Randomizer options ( monsters get all random usually. The most problematic are the bosses.)
 $LabelStep2 = GUICtrlCreateLabel("Step 2: Choose Element Randomization Options", 8, 85)
 $CheckElemRandomizer = GUICtrlCreateCheckbox("Element Randomizer", 8, 105, 121, 17)
 GUICtrlSetState(-1, $GUI_DISABLE)
 $GroupElement = GUICtrlCreateGroup("Element Options", 136, 105, 233, 85)
 $RadioElemOpt1 = GUICtrlCreateRadio("Safe", 152, 120, 161, 17)      ;(Bosses are unnafected)
 GUICtrlSetState(-1, $GUI_DISABLE)
-$RadioElemOpt2 = GUICtrlCreateRadio("Enhanced", 152, 140, 185, 17)     ;Bosses are affected, but will have at least 1 Vulnerable Element)
+$RadioElemOpt2 = GUICtrlCreateRadio("Enhanced", 152, 140, 185, 17)     ;(Bosses are affected. Removes Immunities and Absorbs). Thinking on future to change to include at least 1-3 vulnerable elements)
 GUICtrlSetState(-1, $GUI_DISABLE)
 $RadioElemOpt3 = GUICtrlCreateRadio("Chaotic", 152, 160, 201, 17)     ; ( Can render some seeds unbeatable without Glitches)
 GUICtrlSetState(-1, $GUI_DISABLE)
+;$RadioElemOpt4 = GUICtrlCreateRadio("Hardenned", 152, 160, 201, 17)     ; ( Hard Mode. Thinking on letting to have 1 or 2 vulnerable elements (Strong, Weak, None). The rest will be Immune or Absorb. Not sure if this will only apply for bosses)
+;GUICtrlSetState(-1, $GUI_DISABLE)
+
 
 ; Stat Multiplier Options
-$LabelStep3 = GUICtrlCreateLabel("Step 3: Choose Multiplier Options", 8, 200)
+$LabelStep3 = GUICtrlCreateLabel("Step 3: Choose Multiplier Options. (Not Implemented yet)", 8, 200)
 $CheckStatsMulti = GUICtrlCreateCheckbox("Multipliers", 8, 220, 121, 17)
 GUICtrlSetState(-1, $GUI_DISABLE)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
@@ -63,7 +68,7 @@ GUICtrlSetState(-1, $GUI_DISABLE)
 $ButtonPatch = GUICtrlCreateButton("Patch!", 216, 328, 75, 25)
 GUICtrlSetState(-1, $GUI_DISABLE)
 $ButtonCancel = GUICtrlCreateButton("Cancel", 296, 328, 75, 25)
-$CheckResetISO = GUICtrlCreateCheckbox("Reset Each Enemy prior to changes", 8, 328, 121, 17)
+$CheckResetISO = GUICtrlCreateCheckbox("Reset Each Enemy prior to changes (not implemented yet)", 8, 328, 121, 17)
 GUICtrlSetState(-1, $GUI_DISABLE)
 GUISetState(@SW_SHOW)
 #EndRegion ### END Koda GUI section ###
