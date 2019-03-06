@@ -68,7 +68,7 @@ GUICtrlSetState(-1, $GUI_DISABLE)
 $ButtonPatch = GUICtrlCreateButton("Patch!", 216, 328, 75, 25)
 GUICtrlSetState(-1, $GUI_DISABLE)
 $ButtonCancel = GUICtrlCreateButton("Cancel", 296, 328, 75, 25)
-$CheckResetISO = GUICtrlCreateCheckbox("Reset Each Enemy prior to changes (not implemented yet)", 8, 328, 121, 17)
+$CheckResetISO = GUICtrlCreateCheckbox("Reset Prior Making Changes", 8, 328, 121, 17)
 GUICtrlSetState(-1, $GUI_DISABLE)
 GUISetState(@SW_SHOW)
 #EndRegion ### END Koda GUI section ###
