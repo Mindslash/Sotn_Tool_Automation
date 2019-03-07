@@ -23,7 +23,7 @@ $MapOfOptions["ComboAttrb1"] = 0
 $MapOfOptions["ComboAttrb2"] = 0
 
 #Region ### START Koda GUI section ### Form=C:\Users\Avell 1513\Desktop\My-AutoIt\Randomizer_design.kxf
-$Form1 = GUICreate("Form1", 385, 361, 625, 206)
+$Form1 = GUICreate("Castlevania SOTN Automated Randomizer", 385, 361, 625, 206)
 ; Exe and ISO Paths
 $LabelStep1 = GUICtrlCreateLabel("Step 1: Select Path for both Tool and Bin to be patched", 8, 5)
 $ButtonToolPath = GUICtrlCreateButton("Select Tool Path...", 8, 25, 99, 25)
