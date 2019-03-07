@@ -1,10 +1,12 @@
 # Sotn_Tool_Automation
 
-Currently working:
+Current Options:
 - Tool and Iso Path load
 - Safe, Enhanced and Chaotic Randomization
 - Multiply factors by x2,x3,x4 and x5 for STR/DEF/HP 
 - Multiply factors by 1.25,1.33,1.5 and 2 for LV/EXP
+
+Please, use a clean rom, unless you want re-multiply the current values of monster stats.
 
 
 Video of the Sotn Tool:
