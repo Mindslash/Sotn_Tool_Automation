@@ -21,14 +21,13 @@ $MapOfOptions["RadioElemOpt2"] = 0
 $MapOfOptions["RadioElemOpt3"] = 0
 $MapOfOptions["ComboAttrb1"] = 0
 $MapOfOptions["ComboAttrb2"] = 0
-$MapOfOptions["CheckResetISO"] = 0
 
 #Region ### START Koda GUI section ### Form=C:\Users\Avell 1513\Desktop\My-AutoIt\Randomizer_design.kxf
 $Form1 = GUICreate("Form1", 385, 361, 625, 206)
 ; Exe and ISO Paths
 $LabelStep1 = GUICtrlCreateLabel("Step 1: Select Path for both Tool and Bin to be patched", 8, 5)
 $ButtonToolPath = GUICtrlCreateButton("Select Tool Path...", 8, 25, 99, 25)
-$ButtonIsoBinPath = GUICtrlCreateButton("Select Bin Path...", 8, 55, 99, 25)
+$ButtonIsoBinPath = GUICtrlCreateButton("Select Clean Bin Path...", 8, 55, 99, 25)
 $InputToolPath = GUICtrlCreateInput("", 112, 25, 257, 21)
 GUICtrlSetState(-1, $GUI_DISABLE)
 $InputIsoBinPath = GUICtrlCreateInput("", 112, 55, 257, 21)
@@ -68,8 +67,6 @@ GUICtrlSetState(-1, $GUI_DISABLE)
 $ButtonPatch = GUICtrlCreateButton("Patch!", 216, 328, 75, 25)
 GUICtrlSetState(-1, $GUI_DISABLE)
 $ButtonCancel = GUICtrlCreateButton("Cancel", 296, 328, 75, 25)
-$CheckResetISO = GUICtrlCreateCheckbox("Reset Prior Making Changes", 8, 328, 121, 17)
-GUICtrlSetState(-1, $GUI_DISABLE)
 GUISetState(@SW_SHOW)
 #EndRegion ### END Koda GUI section ###
 
@@ -80,11 +77,11 @@ Func _RandomizerGUILoop()
 			Case $GUI_EVENT_CLOSE, $ButtonCancel
 				GUIDelete($Form1)
 				Exit
-			Case $ButtonToolPath, $ButtonIsoBinPath, $CheckElemRandomizer, $CheckStatsMulti, $RadioElemOpt1, $RadioElemOpt2, $RadioElemOpt3, $CheckResetISO
+			Case $ButtonToolPath, $ButtonIsoBinPath, $CheckElemRandomizer, $CheckStatsMulti, $RadioElemOpt1, $RadioElemOpt2, $RadioElemOpt3
 				_Update_View($nMsg)
 			Case $ButtonPatch
-				_Fill_Option_Map() ;
-				_TranslateMap() ;
+				_Fill_Option_Map() 
+				_TranslateMap() 
 				GUIDelete($Form1)
 				Return $MapOfOptions ; Not sure if needed, but I think its necessary for the other script to read this value. Avoiding the calling of the Global var from here on the other file.
 		EndSwitch
@@ -119,7 +116,7 @@ Func _Update_View($nMsg)
 		Case $CheckStatsMulti
 			_Enable_Disable_Multipliers()
 			_Enable_Disable_Patch_Button()
-		Case $RadioElemOpt1, $RadioElemOpt2, $RadioElemOpt3, $CheckResetISO
+		Case $RadioElemOpt1, $RadioElemOpt2, $RadioElemOpt3
 			_Enable_Disable_Patch_Button()
 	EndSwitch
 
@@ -129,12 +126,10 @@ Func _Enable_Disable_Checkboxes($InputToolPath, $InputIsoBinPath)
 	If GUICtrlRead($InputToolPath) <> "" And GUICtrlRead($InputIsoBinPath) <> "" Then
 		GUICtrlSetState($CheckElemRandomizer, $GUI_ENABLE)
 		GUICtrlSetState($CheckStatsMulti, $GUI_ENABLE)
-		GUICtrlSetState($CheckResetISO, $GUI_ENABLE)
 
 	ElseIf GUICtrlRead($InputToolPath) = "" Or GUICtrlRead($InputIsoBinPath) = "" Then
 		GUICtrlSetState($CheckElemRandomizer, $GUI_DISABLE + $GUI_UNCHECKED)
 		GUICtrlSetState($CheckStatsMulti, $GUI_DISABLE + $GUI_UNCHECKED)
-		GUICtrlSetState($CheckResetISO, $GUI_DISABLE + $GUI_UNCHECKED)
 	EndIf
 EndFunc   ;==>_Enable_Disable_Checkboxes
 
@@ -166,10 +161,10 @@ Func _Enable_Disable_Multipliers()
 EndFunc   ;==>_Enable_Disable_Multipliers
 
 Func _Enable_Disable_Patch_Button()
-	If GUICtrlRead($RadioElemOpt1) = $GUI_CHECKED Or GUICtrlRead($RadioElemOpt2) = $GUI_CHECKED Or GUICtrlRead($RadioElemOpt3) = $GUI_CHECKED Or GUICtrlRead($CheckStatsMulti) = $GUI_CHECKED Or GUICtrlRead($CheckResetISO) = $GUI_CHECKED Then
+	If GUICtrlRead($RadioElemOpt1) = $GUI_CHECKED Or GUICtrlRead($RadioElemOpt2) = $GUI_CHECKED Or GUICtrlRead($RadioElemOpt3) = $GUI_CHECKED Or GUICtrlRead($CheckStatsMulti) = $GUI_CHECKED Then
 		GUICtrlSetState($ButtonPatch, $GUI_ENABLE)
 	EndIf
-	If GUICtrlRead($RadioElemOpt1) = $GUI_UNCHECKED And GUICtrlRead($RadioElemOpt2) = $GUI_UNCHECKED And GUICtrlRead($RadioElemOpt3) = $GUI_UNCHECKED And GUICtrlRead($CheckStatsMulti) = $GUI_UNCHECKED And GUICtrlRead($CheckResetISO) = $GUI_UNCHECKED Then
+	If GUICtrlRead($RadioElemOpt1) = $GUI_UNCHECKED And GUICtrlRead($RadioElemOpt2) = $GUI_UNCHECKED And GUICtrlRead($RadioElemOpt3) = $GUI_UNCHECKED And GUICtrlRead($CheckStatsMulti) = $GUI_UNCHECKED Then
 		GUICtrlSetState($ButtonPatch, $GUI_DISABLE)
 	EndIf
 
@@ -183,7 +178,6 @@ Func _Fill_Option_Map()
 	$MapOfOptions["RadioElemOpt3"] = GUICtrlRead($RadioElemOpt3)
 	$MapOfOptions["ComboAttrb1"] = _GUICtrlComboBox_GetCurSel($ComboAttrb1)
 	$MapOfOptions["ComboAttrb2"] = _GUICtrlComboBox_GetCurSel($ComboAttrb2)
-	$MapOfOptions["CheckResetISO"] = GUICtrlRead($CheckResetISO)
 EndFunc   ;==>_Fill_Option_Map
 
 Func _TranslateMap()
@@ -206,12 +200,6 @@ Func _TranslateMap()
 			$MapOfOptions["RadioElemOpt3"] = 1
 		Case $GUI_UNCHECKED Or $GUI_DISABLE
 			$MapOfOptions["RadioElemOpt3"] = 0
-	EndSwitch
-	Switch $MapOfOptions["CheckResetISO"]
-		Case $GUI_CHECKED
-			$MapOfOptions["CheckResetISO"] = 1
-		Case $GUI_UNCHECKED Or $GUI_DISABLE
-			$MapOfOptions["CheckResetISO"] = 0
 	EndSwitch
 
 EndFunc   ;==>_TranslateMap

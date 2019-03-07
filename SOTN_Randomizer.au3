@@ -8,12 +8,31 @@ TODO:
   * For Future: Include a Checkbox under Randomization Radios to "Include Bosses". Not selecting this option will not change the bosses.
   * For Future: Cherry Picked Randomization is intended to substitute "Enhanced Randomization" by providing difficulty levels based on ammount of Vulnerable Elements.
   * For Future: Maybe a mode making all enemies immune to Hit / Cut Attacks.
-
+  * Reading examples from DSVania and AOSVania, I've saw examples of weakness and strenghts randomizations. This got me some ideas:
+    - Store Original Vulnerabilities (None, Weak, Strong) and Invulnerabilities ( Imune, Absorb) and randomize them ( for example, enemy is vulnerable to 2 elements and invulnerable to other 2, just randomize it.
+    - Adding Difficulty Levels. This can be done by three ways:
+      1. By Increasing Monster tolerance level by 1 for each difficulty: (diablo mode)
+        1.1 Starter - Raise original tolerance levels by 1 (No weak monsters anymore. Minimum level is "Not affected, or None")
+        1.2 Veteran - Raise original tolerance levels by 2 (No weak/Unnafected monsters anymore. Minimum level is Strong) ( things to considerate: some monsters does not have weakness to be exploited. At this point, all monsters that are Unnafected becomes Imunn)
+      2. By Adding Vulnerabilities and Invulnerabilities based on dif level without considering original values
+        2.1 Easy : Randomize for 3 Weak, 3 Unnafected, 3 Strong, 1 Immune , 1 Absorb)
+        2.2 Normal: Randomize for 2 Weak , 2 Unnafected, 3 Strong, 2 Immune , 2 Absorb)
+        2.3 Hard : Randomize for 1 Weak, 1 Unnafected, 3 Strong, 3 Immune, 3 Absorb)
+        2.4 Hell : Randomize for 0 Weak , 0 Unnafected, 1 Strong 4 Immune , 4 Absorb) ( prevent Strong = Water)
+      3. By Adding extra Vulnerabilities, keeping the originals and changing the "none" values . Make use of the Unnafected slots to do the distribution (aos dos mode)
+        3.1 Level 1 : Takes 2 None Level and adds 1 vulnerable and 1 invulnerable 
+        3.2 Level 2 : takes 4 None Level and adds 2 vulnerable and 2 invulnerable
+        3.3 Level 3 : Takes 6 None Level and adds 3 vulnerable and 3 invulnerable
+        3.4 Level 4:  Takes 8 none Levels and adds 4 vulenrable and 4 invulnerable
+    
+      
+  
+  
   #2 Multiply Options
   * Multiplying enemy factor (2x,3x,4x,5x)(ATK, HP and DEF) [OK]
   * Multiplying enemy Exp/LV (1.25,1.33,1.5,2)(round) [OK]
 
-  #3 Reset Option.
+  #3 Reset Option. [REMOVED]
   * For Future. Not sure If I want to reset the ISO everytime its run or take advantage of current settings. It may increases the complexity a bit.
 
   #4 Refactor code. Maybe using ENUMS or preventing the use of Maps, so the beta wont be needed... also cleaning the code to be shorter and more readable.
