@@ -4,6 +4,8 @@
 2 - A confirm box displaying all selected options
 3 - A logic to when all selected options of the Map are 0 ( Default), prevent the Patch button to be pressed or give an alert. Or maybe can be treated on the main.
 
+TODO
+1 - Add 1 when attribute is 0 ( HP, DEF, LVL, EXP)
 
 #ce
 
@@ -49,7 +51,7 @@ GUICtrlSetState(-1, $GUI_DISABLE)
 
 
 ; Stat Multiplier Options
-$LabelStep3 = GUICtrlCreateLabel("Step 3: Choose Multiplier Options. (Not Implemented yet)", 8, 200)
+$LabelStep3 = GUICtrlCreateLabel("Step 3: Choose Multiplier Options.", 8, 200)
 $CheckStatsMulti = GUICtrlCreateCheckbox("Multipliers", 8, 220, 121, 17)
 GUICtrlSetState(-1, $GUI_DISABLE)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
@@ -180,6 +182,8 @@ Func _Fill_Option_Map()
 	$MapOfOptions["ComboAttrb2"] = _GUICtrlComboBox_GetCurSel($ComboAttrb2)
 EndFunc   ;==>_Fill_Option_Map
 
+; This translate map is to instead return values 1,2 or 4 relative to $GUI_CHECKED, $GUI_UNCHECKED and $GUI_DISABLE , return value 1 true and 0 if false for each radiobutton. 
+; A Refactor is needed to return use only 1 Map option , since its a radiobutton and not a checkbox.
 Func _TranslateMap()
 
 
