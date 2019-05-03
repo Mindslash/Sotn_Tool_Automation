@@ -4,7 +4,7 @@ Current Options:
 - Tool and Iso Path load
 - Safe, Enhanced and Chaotic Elements Randomization
  * All common enemies use Chaotic Randomization, regardless of the option selected ( just randomizes everything)
- * Safe randomization left the bosses untouched
+ * Safe randomization left the bosses untouched ( is the best to use at moment)
  * Enhanced randomization randomizes the boss to be either Weak, Strong or Unnafected by the Element. Immunities/Absorbs were removed.
  * Chaotic Randomization use the same full randomization of enemies , which can leave some bossess unbeatable.
 - Multiply factors by x2,x3,x4 and x5 for STR/DEF/HP 
@@ -28,5 +28,5 @@ https://www.autoitscript.com/autoit3/files/beta/autoit/
 Scite Editor ( Full Version):
 https://www.autoitscript.com/site/autoit-script-editor/downloads/
 
-Requires a US Castlevania Bin/Iso. Look for SLUS-00067 version:
+Requires a US Castlevania Bin/Iso. Look for SLUS-00067 version. Any restriction/issues that happens on the original tool may affect this automated script as well.
 
