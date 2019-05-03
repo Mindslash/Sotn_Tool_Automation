@@ -1,3 +1,6 @@
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Icon=randomizer_ico_m8p_icon.ico
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #cs
 TODO:
 	#1 Randomization Options.
